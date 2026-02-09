@@ -1,0 +1,11 @@
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\bin\Debug\net10.0\Ecom.core.deps.json
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\bin\Debug\net10.0\Ecom.core.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\bin\Debug\net10.0\Ecom.core.pdb
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.GeneratedMSBuildEditorConfig.editorconfig
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.AssemblyInfoInputs.cache
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.AssemblyInfo.cs
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.csproj.CoreCompileInputs.cache
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\refint\Ecom.core.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.pdb
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\ref\Ecom.core.dll
