@@ -35,3 +35,4 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.API\obj\Debug\net10.0\ref\Ecom.API.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.API\obj\Debug\net10.0\Ecom.API.sourcelink.json
