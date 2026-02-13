@@ -14,3 +14,5 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Infras
 D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\bin\Debug\net10.0\Ecom.core.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\bin\Debug\net10.0\Ecom.core.pdb
 D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Inf.F0DC9F73.Up2Date
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\bin\Debug\net10.0\Ecom.Infrastructure.runtimeconfig.json
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Infrastructure.genruntimeconfig.cache

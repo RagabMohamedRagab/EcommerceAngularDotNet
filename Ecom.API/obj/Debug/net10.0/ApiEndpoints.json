@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ContainingType": "Ecom.API.Controllers.CategoryController",
+    "Method": "GetAll",
+    "RelativePath": "api/Category/get-all",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
