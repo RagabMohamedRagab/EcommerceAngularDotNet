@@ -9,3 +9,8 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Infras
 D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\refint\Ecom.Infrastructure.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Infrastructure.pdb
 D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\ref\Ecom.Infrastructure.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Infrastructure.csproj.AssemblyReference.cache
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Infrastructure.sourcelink.json
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\bin\Debug\net10.0\Ecom.core.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\bin\Debug\net10.0\Ecom.core.pdb
+D:\EcommerceAngularDOTNET\Ecom\Ecom.Infrastructure\obj\Debug\net10.0\Ecom.Inf.F0DC9F73.Up2Date

@@ -9,3 +9,4 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\refint\Ecom.core.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.pdb
 D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\ref\Ecom.core.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.core\obj\Debug\net10.0\Ecom.core.sourcelink.json
