@@ -17,7 +17,6 @@ namespace Ecom.Infrastructure.Extensions
         {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(configuration.GetConnectionString("EcomDb")));
         }
     }
