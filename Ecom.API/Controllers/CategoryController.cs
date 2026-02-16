@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Ecom.API.Helpers;
 using Ecom.core.Dtos;
 using Ecom.core.Entities.Models;
 using Ecom.core.Interfaces;
@@ -22,86 +23,112 @@ namespace Ecom.API.Controllers
 
         [Route("get-all")]
         [HttpPost]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult<ResponsePageResult<Category>>> GetAll()
         {
             try
             {
                 var result = _unitOfWork.Category.GetAll();
-                return Ok(result);
+                return Ok(new ResponsePageResult<Category>
+                {
+                    IsSucess = true,
+                    Message = "Categories retrieved successfully.",
+                    Status = 200,
+                    Entities = result.ToList(),
+                    TotalCount = result.Count()
+                });
             }
             catch
             {
-                return BadRequest("An error occurred while retrieving categories.");
+                return BadRequest(new ResponsePageResult<Category>());
             }
         }
 
         [HttpGet("Get-by-id/{id}")]
-        public async Task<ActionResult> GetById(int id)
+        public async Task<ActionResult<ResponseResult<Category>>> GetById(int id)
         {
             try
             {
-                var result = _unitOfWork.Category.GetById(id);
+                var result =await _unitOfWork.Category.GetById(id);
                 if (result == null)
                 {
-                    return NotFound($"Category with ID {id} not found.");
+                    return Ok(new ResponseResult<Category>(false,Message:"object Not Found"));
                 }
-                return Ok(result);
+                return Ok(new ResponseResult<Category>() { Entity = result, Status = 200, Message = "Done", IsSucess = true });
             }
             catch
             {
-                return BadRequest("An error occurred while retrieving the category.");
+                return BadRequest(new ResponseResult<Category>(false));
             }
         }
 
         [Route("add-Category")]
         [HttpPost]
-        public async Task<ActionResult> AddCategory(CategoryDto category)
+        public async Task<ActionResult<ResponseResult<CategoryDto>>> AddCategory(CategoryDto category)
         {
             try
             {
                 var map=_mapper.Map<Category>(category);
                 var result = _unitOfWork.Category.AddAsync(map);
                 await _unitOfWork.CommitAsync();
-                return Ok("Done");
+                return Ok(new ResponseResult<CategoryDto>() { Entity = category });
             }
             catch
             {
-                return BadRequest("An error occurred while adding the category.");
+                return BadRequest(new ResponseResult<CategoryDto>(false));
             }
         }
         [HttpDelete("Delete-Category/{id}")]
-        public async Task<ActionResult> DeleteCategory(int id)
+        public async Task<ActionResult<ResponseResult<string>>> DeleteCategory(int id)
         {
             try
             {
                 var Category = await _unitOfWork.Category.GetById(id);
                 if (Category == null)
                 {
-                    return NotFound($"Category with ID {id} not found.");
-                } 
-               await _unitOfWork.Category.DeleteAsync(Category);
+                    return NotFound(new ResponseResult<string>
+                    {
+                        IsSucess = false,
+                        Message = "Object not found",
+                        Status = 404,
+                        Entity = null
+                    });
+                }
+
+                await _unitOfWork.Category.DeleteAsync(Category);
                 await _unitOfWork.CommitAsync();
-                return Ok("Done");
+
+                return Ok(new ResponseResult<string>
+                {
+                    IsSucess = true,
+                    Message = "Deleted successfully",
+                    Status = 200,
+                    Entity = "Done"
+                });
             }
-            catch 
+            catch
             {
-                return BadRequest("An error occurred while deleting the category.");
-              
+                return BadRequest(new ResponseResult<string>
+                {
+                    IsSucess = false,
+                    Message = "An error occurred while deleting the category.",
+                    Status = 400,
+                    Entity = null
+                });
             }
         }
         [HttpPut("Update-Category")]
-        public async Task<ActionResult> UpdateCategory(UpdateCategory category)
+        public async Task<ActionResult<ResponseResult<string>>> UpdateCategory(UpdateCategory category)
         {
             try
             {
                 var mapp=_mapper.Map<Category>(category);
                 await _unitOfWork.Category.UpdateAsync(mapp);
                 await _unitOfWork.CommitAsync();
-                return Ok("Done");
+                return Ok(new ResponseResult<string>() { IsSucess=true,Message="Done"});
             }
             catch
             {
-                return BadRequest("An error occurred while Updating the category.");
+                return BadRequest(new ResponseResult<string>() { Message="error "});
             }
         }
     }

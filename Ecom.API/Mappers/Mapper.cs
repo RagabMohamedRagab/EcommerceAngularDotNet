@@ -10,6 +10,9 @@ namespace Ecom.API.Mappers
         {
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<Category, UpdateCategory>().ReverseMap();
+            CreateMap<Product,ProductDto>().ReverseMap();
+            CreateMap<ProductPhoto, PhottoDto>().ReverseMap();
+            CreateMap<Product, AddProudct>().ReverseMap();
         }
     }
 }
