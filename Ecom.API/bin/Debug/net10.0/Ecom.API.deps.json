@@ -835,6 +835,7 @@
       },
       "Ecom.Infrastructure/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.1",
           "Ecom.core": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.3"

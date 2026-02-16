@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,19 @@ namespace Ecom.core.Dtos
 {
 
 
-    public record AddProudct(string Name, string Description, decimal Price, int Quantity,int? CategoryId);
+    public class AddProudct
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal OldPrice { get; set; }
+        public int NewPrice { get; set; }
+        public int Quantity { get; set; }
+        public int? CategoryId { get; set; }
+
+        public IFormFileCollection file {  get; set; }
+    }    
+    
+    
     public class ProductDto {
         public int Id { get; set; }
 

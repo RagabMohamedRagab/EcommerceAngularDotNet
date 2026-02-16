@@ -12,7 +12,7 @@ namespace Ecom.API.Mappers
             CreateMap<Category, UpdateCategory>().ReverseMap();
             CreateMap<Product,ProductDto>().ReverseMap();
             CreateMap<ProductPhoto, PhottoDto>().ReverseMap();
-            CreateMap<Product, AddProudct>().ReverseMap();
+            CreateMap<AddProudct, Product>().ForMember(b=>b.ProductPhotos,op=>op.Ignore()).ReverseMap();
         }
     }
 }

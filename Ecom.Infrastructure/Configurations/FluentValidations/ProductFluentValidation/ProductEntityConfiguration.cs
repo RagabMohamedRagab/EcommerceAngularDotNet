@@ -13,7 +13,8 @@ namespace Ecom.Infrastructure.Configurations.FluentValidations.ProductFluentVali
         {
             builder.Property(b => b.Name).IsRequired().HasMaxLength(250);
             builder.Property(b => b.Description).HasMaxLength(500);
-            builder.Property(b => b.Price).HasPrecision(18, 2);
+            builder.Property(b => b.NewPrice).HasPrecision(18, 2);
+            builder.Property(b => b.OldPrice).HasPrecision(18, 2);
             builder.Property(b => b.Quantity).IsRequired();
             builder.HasKey(b => b.Id);
 
