@@ -181,6 +181,32 @@
   },
   {
     "ContainingType": "Ecom.API.Controllers.ProductController",
+    "Method": "Delete",
+    "RelativePath": "api/Product/Delete/{Id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Ecom.API.Helpers.ResponseResult\u00601[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Ecom.API.Controllers.ProductController",
     "Method": "GetAll",
     "RelativePath": "api/Product/get-all-product",
     "HttpMethod": "GET",

@@ -2,6 +2,7 @@
 using Ecom.API.Helpers;
 using Ecom.core.Dtos;
 using Ecom.core.Entities.Models;
+using Ecom.core.Exceptions;
 using Ecom.core.Interfaces;
 using Ecom.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -61,7 +62,7 @@ namespace Ecom.API.Controllers
         {
             try
             {
-                var result = await _unitOfWork.Product.GetById(Id, b => b.Category, b => b.ProductPhotos);
+                Product? result = await _unitOfWork.Product.GetById(Id, b => b.Category, b => b.ProductPhotos);
                 if (result == null)
                 {
                     return NotFound(new ResponseResult<ProductDto>() { Message = "Product not found.", IsSucess = false, Entity = null, Status = 404 });
@@ -73,6 +74,22 @@ namespace Ecom.API.Controllers
             {
                 return BadRequest(new ResponseResult<ProductDto>() { Message = "An error occurred while retrieving the product.", IsSucess = false, Entity = null, Status = 400 });
 
+            }
+        }
+        [HttpDelete("Delete/{Id}")]
+        public async Task<ActionResult<ResponseResult<string>>> Delete(int Id)
+        {
+            try
+            {
+                var GetProduct = await _unitOfWork.Product.GetById(Id);
+                if (GetProduct == null) throw new BusineesException("Product not found.");
+                await _productRepository.DeleteAsync(GetProduct);
+               await _unitOfWork.CommitAsync();
+                return Ok(new ResponseResult<string>() { Message = "Done", IsSucess = true, Entity = "Done", Status = 200 });
+            }
+            catch (BusineesException ex)
+            {
+                return NotFound(new ResponseResult<string>() { Message = ex.Message, IsSucess = false, Entity = "Failed", Status = 404 });
             }
         }
     }

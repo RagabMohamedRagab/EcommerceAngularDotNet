@@ -1,6 +1,6 @@
 ﻿namespace Ecom.API.Helpers
 {
-    public interface IResponseResult<T> where T : class
+    public interface IResponseResult<T> 
     {
         public T Entity { get; set; }
     }
