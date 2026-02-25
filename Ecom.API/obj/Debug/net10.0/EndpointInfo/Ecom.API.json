@@ -6,6 +6,65 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Bug/not-found": {
+      "get": {
+        "tags": [
+          "Bug"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Bug/server-error": {
+      "get": {
+        "tags": [
+          "Bug"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Bug/bad-request/{id}": {
+      "get": {
+        "tags": [
+          "Bug"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Bug/bad-request": {
+      "get": {
+        "tags": [
+          "Bug"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Category/get-all": {
       "post": {
         "tags": [
@@ -859,6 +918,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Bug"
+    },
     {
       "name": "Category"
     },
