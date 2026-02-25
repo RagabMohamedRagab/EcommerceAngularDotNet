@@ -10,5 +10,7 @@ namespace Ecom.core.Interfaces
     {
 
         Task<bool> AddProduct(AddProudct proudct);
+
+        Task<bool> UpdateProduct(ProductUpdate productUpdate);
     }
 }

@@ -14,7 +14,7 @@ namespace Ecom.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository productRepository,IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork)
+        public ProductController(IProductRepository productRepository, IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork)
         {
             _mapper = mapper;
             _productRepository = productRepository;
@@ -26,7 +26,7 @@ namespace Ecom.API.Controllers
             try
             {
                 var result = _unitOfWork.Product.GetAll(b => b.Category, b => b.ProductPhotos);
-                var MappResult=_mapper.Map<List<ProductDto>>(result);
+                var MappResult = _mapper.Map<List<ProductDto>>(result);
                 if (MappResult == null || !MappResult.Any())
                 {
                     return NotFound(new ResponsePageResult<ProductDto>() { Message = "No products found.", IsSucess = false, Entities = [], Status = 404 });
@@ -39,11 +39,11 @@ namespace Ecom.API.Controllers
             }
         }
         [HttpPost("add-Product")]
-        public async Task<ActionResult<ResponseResult<string>>> AddProduct([FromForm]AddProudct productDto)
+        public async Task<ActionResult<ResponseResult<string>>> AddProduct([FromForm] AddProudct productDto)
         {
             try
             {
-                var result =await _productRepository.AddProduct(productDto);
+                var result = await _productRepository.AddProduct(productDto);
                 if (result)
                 {
                     return Ok(new ResponseResult<string>(true));
@@ -84,12 +84,27 @@ namespace Ecom.API.Controllers
                 var GetProduct = await _unitOfWork.Product.GetById(Id);
                 if (GetProduct == null) throw new BusineesException("Product not found.");
                 await _productRepository.DeleteAsync(GetProduct);
-               await _unitOfWork.CommitAsync();
+                await _unitOfWork.CommitAsync();
                 return Ok(new ResponseResult<string>() { Message = "Done", IsSucess = true, Entity = "Done", Status = 200 });
             }
             catch (BusineesException ex)
             {
                 return NotFound(new ResponseResult<string>() { Message = ex.Message, IsSucess = false, Entity = "Failed", Status = 404 });
+            }
+        }
+
+        [HttpPut("Update-Product")]
+        public async Task<ActionResult<ResponseResult<string>>> UpdateProduct([FromForm] ProductUpdate product)
+        {
+
+            var result = await _productRepository.UpdateProduct(product);
+            if (result)
+            {
+                return Ok(new ResponseResult<string> { Message = "Done", IsSucess = true, Status = 200 });
+            }
+            else
+            {
+                return BadRequest(new ResponseResult<string> { Message = "Something error" });
             }
         }
     }

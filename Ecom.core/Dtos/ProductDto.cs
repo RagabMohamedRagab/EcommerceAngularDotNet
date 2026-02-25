@@ -6,7 +6,10 @@ using System.Text;
 namespace Ecom.core.Dtos
 {
 
-
+    public class ProductUpdate:AddProudct
+    {
+        public int Id { get; set; }
+    }
     public class AddProudct
     {
         public string Name { get; set; }
@@ -39,4 +42,8 @@ namespace Ecom.core.Dtos
 
         public int? ProductId { get; set; }
     }
+
+
+
+
 }

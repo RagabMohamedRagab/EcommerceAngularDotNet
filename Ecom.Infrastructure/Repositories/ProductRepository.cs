@@ -47,5 +47,41 @@ namespace Ecom.Infrastructure.Repositories
             return true;
 
         }
+
+        public async Task<bool> UpdateProduct(ProductUpdate productUpdate)
+        {
+            try { 
+            var Product =await GetById(productUpdate.Id, b => b.Category, b => b.ProductPhotos);
+            if (Product is null)
+            {
+                return false;
+            }
+            _mapper.Map<Product>(productUpdate);
+
+                if (productUpdate.file != null && productUpdate.file.Count > 0)
+                {
+                    foreach (var file in Product.ProductPhotos)
+                    {
+                        await _imageSaveService.DeleteImage(file.ImageName);
+                        File.Delete(file.ImageName);
+                    }
+                    _context.ProductPhotos.RemoveRange(Product.ProductPhotos);
+                   var photo= await _imageSaveService.SaveImgae(productUpdate.file, productUpdate.Name);
+                    var Photos = photo.Select(b => new ProductPhoto()
+                    {
+                        ImageName = b,
+                        ProductId = Product.Id
+                    }).ToList();
+                    _context.ProductPhotos.AddRange(Photos);
+                }
+               await _context.SaveChangesAsync();
+               return true;
+            }
+            catch 
+            {
+                return false;
+            }
+        }
+
     }
 }
