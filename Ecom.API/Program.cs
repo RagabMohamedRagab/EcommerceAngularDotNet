@@ -1,7 +1,9 @@
-﻿using Ecom.Infrastructure.Extensions;
+﻿using Ecom.API.MiddleWares;
+using Ecom.Infrastructure.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services
+builder.Services.AddMemoryCache();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.RegisterServiceConfiguration(builder.Configuration);
@@ -29,6 +31,7 @@ if (app.Environment.IsDevelopment())
 
     });
 }
+app.UseMiddleware<ExceptionMiddlewares>();
 app.UseStatusCodePagesWithRedirects("/error/{0}");
 app.UseHttpsRedirection();
 app.UseAuthorization();
