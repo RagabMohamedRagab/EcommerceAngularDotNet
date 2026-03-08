@@ -86,7 +86,7 @@ namespace Ecom.API.MiddleWares
         {
             context.Response.Headers["X-Content-Type-Options"] = "nosniff";
             context.Response.Headers["X-XSS-Type-Protections"] = "1;mode=block";
-            context.Response.Headers["X-Frame-Type-Options"] = "Deny";
+            context.Response.Headers["X-Frame-Options"] = "Deny";
 
         }
     }

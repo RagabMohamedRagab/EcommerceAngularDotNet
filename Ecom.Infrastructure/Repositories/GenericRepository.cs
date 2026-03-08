@@ -23,6 +23,11 @@ namespace Ecom.Infrastructure.Repositories
            await table.AddAsync(entity);
         }
 
+        public async Task<int> CountAsync()
+        {
+            return await _context.Set<T>().CountAsync();
+        }
+
         public async Task DeleteAsync(T entity)
         {
             table.Remove(entity);

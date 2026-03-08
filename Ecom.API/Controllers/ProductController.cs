@@ -4,6 +4,7 @@ using Ecom.core.Dtos;
 using Ecom.core.Entities.Models;
 using Ecom.core.Exceptions;
 using Ecom.core.Interfaces;
+using Ecom.core.Shared;
 using Ecom.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,17 +22,16 @@ namespace Ecom.API.Controllers
         }
 
         [HttpGet("get-all-product")]
-        public async Task<ActionResult<ResponsePageResult<ProductDto>>> GetAll()
+        public async Task<ActionResult<ResponsePageResult<ProductDto>>> GetAll([FromQuery]ProductParameter parameter)
         {
             try
             {
-                var result = _unitOfWork.Product.GetAll(b => b.Category, b => b.ProductPhotos);
-                var MappResult = _mapper.Map<List<ProductDto>>(result);
+                var MappResult =await _productRepository.GetAllProducts(parameter);
                 if (MappResult == null || !MappResult.Any())
                 {
                     return NotFound(new ResponsePageResult<ProductDto>() { Message = "No products found.", IsSucess = false, Entities = [], Status = 404 });
                 }
-                return Ok(new ResponsePageResult<ProductDto>() { Message = "Done", IsSucess = true, Entities = MappResult, Status = 200 });
+                return Ok(new ResponsePageResult<ProductDto>() { Message = "Done", IsSucess = true, Entities = MappResult, Status = 200, PageNumber = parameter.PageNumber, PageSize = parameter.pageSize,TotalCount=await _unitOfWork.Product.CountAsync() });
             }
             catch
             {

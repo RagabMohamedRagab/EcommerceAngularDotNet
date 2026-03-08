@@ -30,6 +30,8 @@ namespace Ecom.API.Controllers
                 var result = _unitOfWork.Category.GetAll();
                 return Ok(new ResponsePageResult<Category>
                 {
+                    PageSize = 10,
+                    PageNumber = 1,
                     IsSucess = true,
                     Message = "Categories retrieved successfully.",
                     Status = 200,

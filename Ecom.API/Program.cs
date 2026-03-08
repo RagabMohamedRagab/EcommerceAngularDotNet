@@ -8,6 +8,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.RegisterServiceConfiguration(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddCors(op =>
+{
+       op.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials()
+              .WithOrigins("https://localhost:4200");
+    });
+
+});
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new()
@@ -31,6 +43,7 @@ if (app.Environment.IsDevelopment())
 
     });
 }
+app.UseCors("AllowAll");
 app.UseMiddleware<ExceptionMiddlewares>();
 app.UseStatusCodePagesWithRedirects("/error/{0}");
 app.UseHttpsRedirection();

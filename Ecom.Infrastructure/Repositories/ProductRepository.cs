@@ -4,9 +4,11 @@ using Ecom.core.Entities.Models;
 using Ecom.core.Exceptions;
 using Ecom.core.Interfaces;
 using Ecom.core.Services;
+using Ecom.core.Shared;
 using Ecom.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +26,60 @@ namespace Ecom.Infrastructure.Repositories
             _context = context;
             _imageSaveService = imageSaveService;
         }
+        public async Task<List<ProductDto>> GetAllProducts(ProductParameter parameter)
+        {
+            var query = _context.Products
+                .Include(b => b.Category)
+                .Include(b => b.ProductPhotos)
+                .AsNoTracking();
 
+            if (string.IsNullOrEmpty(parameter.Search))
+            {
+                var words = parameter.Search.Split(' ');
+                query = query.Where(b => words.All(
+                    w => b.Name.ToLower().Contains(w.ToLower())
+                    ||
+                    b.Description.ToLower().Contains(w.ToLower())
+                    ));
+            }
+            if (parameter.CategoryId.HasValue)
+            {
+                query = query.Where(b => b.CategoryId == parameter.CategoryId);
+            }
+
+            if (!string.IsNullOrEmpty(parameter.sort))
+            {
+                switch (parameter.sort)
+                {
+                    case "PriceAsn":
+                        query = query.OrderBy(b => b.NewPrice);
+                        break;
+                    case "PriceDsc":
+                        query = query.OrderByDescending(b => b.NewPrice);
+                        break;
+                    default:
+                        query = query.OrderBy(b => b.Name);
+                        break;
+                }
+            }
+            else
+            {
+                query = query.OrderBy(b => b.Name);
+            }
+
+            var pageSizeLocal = parameter.pageSize > 0 ? parameter.pageSize : 3;
+            var pageNumberLocal = parameter.PageNumber > 0 ? parameter.PageNumber : 1;
+
+            var TotalItems = await query.CountAsync();
+
+            var products = await query
+                .Skip((pageNumberLocal - 1) * pageSizeLocal)
+                .Take(pageSizeLocal)
+                .ToListAsync();
+
+            var mapped = _mapper.Map<List<ProductDto>>(products);
+            return mapped;
+        }
         public async Task<bool> AddProduct(AddProudct proudct)
         {
             if (proudct == null) throw new BusineesException("Product Not Found");

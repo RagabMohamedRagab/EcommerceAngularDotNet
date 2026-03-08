@@ -14,6 +14,7 @@ namespace Ecom.core.Interfaces
 
         public Task<T> GetById(int id,params Expression<Func<T,object>> [] expression);
 
+         Task<int> CountAsync();
         public Task AddAsync(T entity);
        public Task UpdateAsync(T entity);
         public Task DeleteAsync(T entity);

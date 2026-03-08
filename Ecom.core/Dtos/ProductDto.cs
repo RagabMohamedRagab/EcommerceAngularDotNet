@@ -30,8 +30,8 @@ namespace Ecom.core.Dtos
 
         public string Description { get; set; }
 
-        public decimal Price { get; set; }
-
+        public decimal OldPrice { get; set; }
+        public decimal NewPrice { get; set; }
         public int Quantity { get; set; }
         public List<PhottoDto> ProductPhotos { get; set; }
         public CategoryDto Category { get; set; }
