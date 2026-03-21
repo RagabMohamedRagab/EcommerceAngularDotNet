@@ -1,0 +1,9 @@
+wwwroot\Image\Eslam\MiCE-Header.jpg
+wwwroot\Image\New Product\Huawei-Logo.jpg
+wwwroot\Image\Ragab\hhhhh.png
+wwwroot\Image\fff\JT-Express-Logo-Vector.jpg
+wwwroot\Image\fff\JTBack.jpg
+wwwroot\Image\hh\JTBack.jpg
+wwwroot\Image\string\download.png
+wwwroot\Image\string\mobile4.jpg
+wwwroot\Image\string\mobile6.jpg

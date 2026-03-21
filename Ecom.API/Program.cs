@@ -16,7 +16,7 @@ builder.Services.AddCors(op =>
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials()
-              .WithOrigins("https://localhost:4200");
+              .WithOrigins("http://localhost:4200");
     });
 
 });
@@ -47,6 +47,7 @@ app.UseCors("AllowAll");
 app.UseMiddleware<ExceptionMiddlewares>();
 app.UseStatusCodePagesWithRedirects("/error/{0}");
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseAuthorization();
 app.MapControllers();
 

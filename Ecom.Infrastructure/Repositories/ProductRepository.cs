@@ -33,7 +33,7 @@ namespace Ecom.Infrastructure.Repositories
                 .Include(b => b.ProductPhotos)
                 .AsNoTracking();
 
-            if (string.IsNullOrEmpty(parameter.Search))
+            if (!string.IsNullOrEmpty(parameter.Search))
             {
                 var words = parameter.Search.Split(' ');
                 query = query.Where(b => words.All(

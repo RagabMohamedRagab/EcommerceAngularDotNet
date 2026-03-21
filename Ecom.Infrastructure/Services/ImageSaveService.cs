@@ -42,7 +42,7 @@ namespace Ecom.Infrastructure.Services
                     {
                       await  item.CopyToAsync(stream);
                     }
-                    images.Add(Path.Combine(src, ImageName));
+                    images.Add($"{src}/{ImageName}");
                 }
             }
             return images;

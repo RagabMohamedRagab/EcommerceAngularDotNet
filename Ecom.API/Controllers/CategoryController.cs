@@ -22,7 +22,7 @@ namespace Ecom.API.Controllers
 
 
         [Route("get-all")]
-        [HttpPost]
+        [HttpGet]
         public async Task<ActionResult<ResponsePageResult<Category>>> GetAll()
         {
             try

@@ -29,7 +29,7 @@ namespace Ecom.API.Controllers
                 var MappResult =await _productRepository.GetAllProducts(parameter);
                 if (MappResult == null || !MappResult.Any())
                 {
-                    return NotFound(new ResponsePageResult<ProductDto>() { Message = "No products found.", IsSucess = false, Entities = [], Status = 404 });
+                    return Ok(new ResponsePageResult<ProductDto>() { Message = "No products found.", IsSucess = false, Entities = [], Status = 404 });
                 }
                 return Ok(new ResponsePageResult<ProductDto>() { Message = "Done", IsSucess = true, Entities = MappResult, Status = 200, PageNumber = parameter.PageNumber, PageSize = parameter.pageSize,TotalCount=await _unitOfWork.Product.CountAsync() });
             }
@@ -38,6 +38,7 @@ namespace Ecom.API.Controllers
                 return BadRequest(new ResponsePageResult<ProductDto>() { Message = "No products found.", IsSucess = false, Entities = [], Status = 404 });
             }
         }
+        //D:\EcommerceAngularDOTNET\Ecom\Ecom.API\wwwroot\Image\New Product\
         [HttpPost("add-Product")]
         public async Task<ActionResult<ResponseResult<string>>> AddProduct([FromForm] AddProudct productDto)
         {
