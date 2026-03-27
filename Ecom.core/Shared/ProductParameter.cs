@@ -4,5 +4,5 @@ using System.Text;
 
 namespace Ecom.core.Shared
 {
-    public record ProductParameter(string? sort,string? Search, int? CategoryId, int PageNumber, int pageSize = 5);
+    public record ProductParameter(string? sort,string? Search, int? CategoryId, int PageNumber=1, int pageSize=3);
 }
