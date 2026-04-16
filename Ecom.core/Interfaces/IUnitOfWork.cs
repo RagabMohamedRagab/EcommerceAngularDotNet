@@ -10,6 +10,8 @@ namespace Ecom.core.Interfaces
         public IProductRepository Product { get; }
         public IProductPhotoRepository ProductPhoto { get; }
 
+        public ICustomerBasketItemRepository CustomerBasketItem { get; }
+
 
         public int Commit();
         public Task<int> CommitAsync();

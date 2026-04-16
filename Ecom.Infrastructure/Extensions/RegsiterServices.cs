@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Protocols;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +27,14 @@ namespace Ecom.Infrastructure.Extensions
             services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory())));
 
             services.AddDbContext<AppDbContext>(option => option.UseSqlServer(configuration.GetConnectionString("EcomDb")));
+
+
+            services.AddSingleton<IConnectionMultiplexer>(i =>
+            {
+                var connect = ConfigurationOptions.Parse(configuration.GetConnectionString("Redis")!, true);
+                return ConnectionMultiplexer.Connect(connect);
+            });
+        
         }
     }
 }

@@ -1,5 +1,6 @@
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\appsettings.Development.json
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\appsettings.json
+D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.staticwebassets.runtime.json
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.staticwebassets.endpoints.json
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.exe
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.deps.json
@@ -7,6 +8,7 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.runtimeconfig
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.pdb
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\AutoMapper.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Azure.Core.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Azure.Identity.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Humanizer.dll
@@ -40,6 +42,8 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Microsoft.SqlServer.Se
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Mono.TextTemplating.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\StackExchange.Redis.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -52,6 +56,7 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.Composition.Run
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.Composition.TypedParts.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.IO.Hashing.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.Memory.Data.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
@@ -166,5 +171,3 @@ D:\EcommerceAngularDOTNET\Ecom\Ecom.API\obj\Debug\net10.0\refint\Ecom.API.dll
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\obj\Debug\net10.0\Ecom.API.pdb
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\obj\Debug\net10.0\Ecom.API.genruntimeconfig.cache
 D:\EcommerceAngularDOTNET\Ecom\Ecom.API\obj\Debug\net10.0\ref\Ecom.API.dll
-D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\EcommerceAngularDOTNET\Ecom\Ecom.API\bin\Debug\net10.0\Ecom.API.staticwebassets.runtime.json
